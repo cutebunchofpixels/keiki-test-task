@@ -12,7 +12,9 @@ export default {
 
 <template>
   <div class="auth-layout">
-    <AppHeader />
+    <div class="auth-layout__header">
+      <AppHeader />
+    </div>
     <AuthLayoutContent />
   </div>
 </template>
@@ -21,5 +23,9 @@ export default {
 .auth-layout {
   display: flex;
   flex-direction: column;
+}
+
+.auth-layout__header {
+  margin-bottom: 135px;
 }
 </style>

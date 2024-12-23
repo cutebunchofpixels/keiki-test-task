@@ -4,8 +4,11 @@ import VueRouter from "vue-router";
 import App from "./App.vue";
 import router from "@/config/router";
 
-import "./assets/reset.css";
-import "./assets/index.css";
+import "./assets/css/reset.css";
+import "./assets/css/index.css";
+import "./assets/css/colors.css";
+import "./assets/css/typography.css";
+import "./assets/css/spacing.css";
 
 Vue.use(VueRouter);
 

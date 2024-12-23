@@ -9,7 +9,13 @@ export default {
 </script>
 
 <template>
-  <main>
+  <main class="auth-layout-content">
     <RouterView />
   </main>
 </template>
+
+<style scoped lang="scss">
+.auth-layout-content {
+  padding-inline: var(--page-padding-inline);
+}
+</style>
