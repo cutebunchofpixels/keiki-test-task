@@ -31,11 +31,17 @@ function handleInputClick() {
 }
 </script>
 
+<script lang="ts">
+export default {
+  inheritAttrs: false,
+};
+</script>
+
 <template>
   <div class="input" :class="inputClasses" @click="handleInputClick">
     <slot name="prepend-inner"></slot>
     <input
-      :value="value"
+      :value="props.value"
       @input="$emit('input', $event.target.value)"
       @focus="focused = true"
       @blur="focused = false"
@@ -55,6 +61,8 @@ function handleInputClick() {
   align-items: center;
   padding: 12px 16px;
   border-radius: 6px;
+  border: 1px solid transparent;
+  transition: border-color var(--transition-duration-normal);
 }
 
 .input__element {
@@ -69,10 +77,10 @@ function handleInputClick() {
 }
 
 .input_focused {
-  border: 1px solid var(--accent-color);
+  border-color: var(--accent-color);
 }
 
 .input_invalid {
-  border: 1px solid var(--error-color);
+  border-color: var(--error-color);
 }
 </style>

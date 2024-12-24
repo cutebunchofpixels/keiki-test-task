@@ -16,6 +16,7 @@ import { AuthLayoutContent } from "./components/AuthLayoutContent";
 .auth-layout {
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .auth-layout__header {

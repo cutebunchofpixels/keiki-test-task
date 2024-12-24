@@ -11,5 +11,7 @@ import { RouterView } from "vue-router";
 <style scoped lang="scss">
 .auth-layout-content {
   padding-inline: var(--page-padding-inline);
+  flex-grow: 1;
+  display: flex;
 }
 </style>
