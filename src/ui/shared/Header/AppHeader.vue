@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { AppAvatar } from "@/ui/shared/Avatar";
 import { AppLogo } from "@/ui/shared/Logo";
-import { LogoColor } from "@/ui/shared/Logo";
+import { LogoColor } from "@/ui/shared/Logo/constants";
 </script>
 
 <template>
