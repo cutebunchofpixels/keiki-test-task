@@ -8,7 +8,8 @@ import "./assets/css/reset.css";
 import "./assets/css/index.css";
 import "./assets/css/colors.css";
 import "./assets/css/typography.css";
-import "./assets/css/spacing.css";
+import "./assets/css/sizing.css";
+import "./assets/css/animations.css";
 
 Vue.use(VueRouter);
 
