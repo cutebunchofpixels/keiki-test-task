@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed, ref, useSlots } from "vue";
 
 export type InputProps = {
   invalid?: boolean;
@@ -18,6 +18,7 @@ const props = withDefaults(defineProps<InputProps>(), {
 
 const focused = ref<boolean>(false);
 const inputElementRef = ref<HTMLInputElement | null>(null);
+const slots = useSlots();
 
 const inputClasses = computed(() => {
   return {
@@ -25,6 +26,9 @@ const inputClasses = computed(() => {
     input_invalid: props.invalid,
   };
 });
+
+const hasPrependSlot = computed(() => Boolean(slots["prepend-inner"]));
+const hasAppendSlot = computed(() => Boolean(slots["append-inner"]));
 
 function handleInputClick() {
   inputElementRef.value?.focus();
@@ -39,7 +43,9 @@ export default {
 
 <template>
   <div class="input" :class="inputClasses" @click="handleInputClick">
-    <slot name="prepend-inner"></slot>
+    <div v-if="hasPrependSlot" class="input__prepend-inner">
+      <slot name="prepend-inner"> </slot>
+    </div>
     <input
       :value="props.value"
       @input="$emit('input', $event.target.value)"
@@ -49,7 +55,9 @@ export default {
       ref="inputElementRef"
       v-bind="$attrs"
     />
-    <slot name="append-inner"></slot>
+    <div v-if="hasAppendSlot" class="input__append-inner">
+      <slot name="append-inner"></slot>
+    </div>
   </div>
 </template>
 
@@ -72,7 +80,6 @@ export default {
   outline: none;
   padding: 0;
   background: transparent;
-  margin-inline: 9px;
   width: 100%;
   caret-color: var(--accent-color);
 }
@@ -87,5 +94,13 @@ export default {
 
 .input_invalid {
   border-color: var(--error-color);
+}
+
+.input__prepend-inner {
+  margin-inline-end: 9px;
+}
+
+.input__append-inner {
+  margin-inline-start: 9px;
 }
 </style>
