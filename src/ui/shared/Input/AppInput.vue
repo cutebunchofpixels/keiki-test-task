@@ -10,7 +10,7 @@ type InputEmits = {
   (e: "input", value: string): void;
 };
 
-defineEmits<InputEmits>();
+const emit = defineEmits<InputEmits>();
 
 const props = withDefaults(defineProps<InputProps>(), {
   invalid: false,
@@ -33,6 +33,10 @@ const hasAppendSlot = computed(() => Boolean(slots["append-inner"]));
 function handleInputClick() {
   inputElementRef.value?.focus();
 }
+
+function handleInput(event: InputEvent) {
+  emit("input", (event.target as HTMLInputElement).value);
+}
 </script>
 
 <script lang="ts">
@@ -47,13 +51,16 @@ export default {
       <slot name="prepend-inner"> </slot>
     </div>
     <input
-      :value="props.value"
-      @input="$emit('input', $event.target.value)"
+      v-bind="$attrs"
+      v-on="{
+        ...$listeners,
+        input: handleInput,
+      }"
+      :value="value"
       @focus="focused = true"
       @blur="focused = false"
       class="input__element"
       ref="inputElementRef"
-      v-bind="$attrs"
     />
     <div v-if="hasAppendSlot" class="input__append-inner">
       <slot name="append-inner"></slot>
