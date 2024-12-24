@@ -63,6 +63,7 @@ export default {
   border-radius: 6px;
   border: 1px solid transparent;
   transition: border-color var(--transition-duration-normal);
+  cursor: text;
 }
 
 .input__element {
@@ -74,6 +75,10 @@ export default {
   margin-inline: 9px;
   width: 100%;
   caret-color: var(--accent-color);
+}
+
+.input__element::placeholder {
+  color: var(--font-color-muted);
 }
 
 .input_focused {

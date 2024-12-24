@@ -28,7 +28,7 @@ function handleFormSubmit() {
   <form @submit.prevent="handleFormSubmit">
     <div class="login-form__name-input">
       <AppLabel for="name">Name</AppLabel>
-      <AppInput id="name" v-model="username" />
+      <AppInput id="name" v-model="username" placeholder="Enter your name" />
     </div>
     <div class="login-form__submit-button">
       <AppButton>Click</AppButton>
