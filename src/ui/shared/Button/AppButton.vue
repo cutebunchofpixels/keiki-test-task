@@ -3,9 +3,9 @@ import { computed, type ButtonHTMLAttributes } from "vue";
 
 import { ButtonVariant } from "@/ui/shared/Button/constants";
 
-export interface ButtonProps extends ButtonHTMLAttributes {
+export type ButtonProps = {
   variant?: ButtonVariant;
-}
+};
 
 const props = withDefaults(defineProps<ButtonProps>(), {
   variant: ButtonVariant.Primary,
@@ -18,7 +18,7 @@ const buttonClasses = computed(() => ({
 </script>
 
 <template>
-  <button v-bind="props" class="button" :class="buttonClasses">
+  <button class="button" :class="buttonClasses" v-bind="$attrs">
     <slot></slot>
   </button>
 </template>
