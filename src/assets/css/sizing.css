@@ -1,0 +1,5 @@
+:root {
+  --page-padding-inline: clamp(24px, 5vw, 72px);
+
+  --border-radius-normal: 6px;
+}

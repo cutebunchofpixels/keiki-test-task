@@ -1,0 +1,13 @@
+:root {
+  --background-color: #ffffff;
+  --accent-color: #636af2;
+  --accent-color-light: #ebecff;
+  --accent-color-light-hover: #d6d8ff;
+
+  --font-color-body: #434343;
+  --font-color-body-lg: #232323;
+  --font-color-muted: #a9a9a9;
+  --font-color-contrast: #ffffff;
+
+  --error-color: #ff4646;
+}
