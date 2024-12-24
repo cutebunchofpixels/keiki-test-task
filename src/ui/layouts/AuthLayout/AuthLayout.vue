@@ -1,13 +1,6 @@
-<script lang="ts">
+<script setup lang="ts">
 import { AppHeader } from "@/ui/shared/Header";
 import { AuthLayoutContent } from "./components/AuthLayoutContent";
-
-export default {
-  components: {
-    AppHeader,
-    AuthLayoutContent,
-  },
-};
 </script>
 
 <template>

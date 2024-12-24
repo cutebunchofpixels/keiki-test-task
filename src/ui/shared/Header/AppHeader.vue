@@ -1,26 +1,13 @@
-<script lang="ts">
+<script setup lang="ts">
 import { AppAvatar } from "@/ui/shared/Avatar";
 import { AppLogo } from "@/ui/shared/Logo";
-import { LogoColors } from "@/ui/shared/Logo";
-
-export default {
-  components: {
-    AppLogo,
-    AppAvatar,
-  },
-
-  computed: {
-    LogoColors() {
-      return LogoColors;
-    },
-  },
-};
+import { LogoColor } from "@/ui/shared/Logo";
 </script>
 
 <template>
   <header class="header">
     <div class="header__logo">
-      <AppLogo :color="LogoColors.Accent" />
+      <AppLogo :color="LogoColor.Accent" />
     </div>
     <AppAvatar username="a" />
   </header>

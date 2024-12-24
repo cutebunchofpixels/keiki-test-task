@@ -1,11 +1,5 @@
-<script lang="ts">
+<script setup lang="ts">
 import { RouterView } from "vue-router";
-
-export default {
-  components: {
-    RouterView,
-  },
-};
 </script>
 
 <template>

@@ -1,11 +1,5 @@
-<script lang="ts">
+<script setup lang="ts">
 import { AppInput } from "@/ui/shared/Input";
-
-export default {
-  components: {
-    AppInput,
-  },
-};
 </script>
 
 <template>

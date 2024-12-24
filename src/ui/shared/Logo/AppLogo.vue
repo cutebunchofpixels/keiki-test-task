@@ -1,33 +1,23 @@
-<script lang="ts">
-import type { PropType } from "vue";
+<script setup lang="ts">
+import { computed } from "vue";
+
+import { LogoColor } from "./constants";
 
 import accentLogo from "@/assets/images/logo-accent.png";
 import contrastLogo from "@/assets/images/logo-contrast.png";
 
-export enum LogoColors {
-  Accent,
-  Contrast,
-}
+export type LogoProps = {
+  color: LogoColor;
+};
+
+const props = defineProps<LogoProps>();
 
 const logoUrls = {
-  [LogoColors.Accent]: accentLogo,
-  [LogoColors.Contrast]: contrastLogo,
+  [LogoColor.Accent]: accentLogo,
+  [LogoColor.Contrast]: contrastLogo,
 };
 
-export default {
-  props: {
-    color: {
-      type: Number as PropType<LogoColors>,
-      required: true,
-    },
-  },
-
-  computed: {
-    logoUrl() {
-      return logoUrls[this.color];
-    },
-  },
-};
+const logoUrl = computed(() => logoUrls[props.color]);
 </script>
 
 <template>

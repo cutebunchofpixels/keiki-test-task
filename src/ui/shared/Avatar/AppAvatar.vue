@@ -1,18 +1,15 @@
-<script lang="ts">
-export default {
-  props: {
-    username: {
-      type: String,
-      required: true,
-    },
-  },
+<script setup lang="ts">
+import { computed } from "vue";
 
-  computed: {
-    firstLetter() {
-      return this.username.charAt(0).toLocaleUpperCase();
-    },
-  },
+export type AvatarProps = {
+  username: string;
 };
+
+const props = defineProps<AvatarProps>();
+
+const firstLetter = computed(() =>
+  props.username.charAt(0).toLocaleUpperCase()
+);
 </script>
 
 <template>
