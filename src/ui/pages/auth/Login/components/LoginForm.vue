@@ -31,7 +31,7 @@ function handleFormSubmit() {
       <AppInput id="name" v-model="username" placeholder="Enter your name" />
     </div>
     <div class="login-form__submit-button">
-      <AppButton>Click</AppButton>
+      <AppButton>Log in</AppButton>
     </div>
   </form>
 </template>
