@@ -1,7 +1,7 @@
 import Vue from "vue";
-import VueRouter from "vue-router";
 
 import App from "./App.vue";
+import pinia from "@/config/pinia";
 import router from "@/config/router";
 
 import "./assets/css/reset.css";
@@ -11,9 +11,8 @@ import "./assets/css/typography.css";
 import "./assets/css/sizing.css";
 import "./assets/css/animations.css";
 
-Vue.use(VueRouter);
-
 new Vue({
+  pinia,
   router,
   render: (h) => h(App),
 }).$mount("#app");

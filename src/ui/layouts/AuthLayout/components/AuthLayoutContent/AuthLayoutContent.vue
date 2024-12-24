@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { RouterView } from "vue-router";
+import { LoginPage } from "@/ui/pages/auth/Login";
 </script>
 
 <template>
   <main class="auth-layout-content">
-    <RouterView />
+    <LoginPage />
   </main>
 </template>
 
