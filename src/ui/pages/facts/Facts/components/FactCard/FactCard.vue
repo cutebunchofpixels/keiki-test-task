@@ -11,7 +11,7 @@ export type FactCardProps = {
 const props = defineProps<FactCardProps>();
 
 const textClasses = computed(() => ({
-  "fact-card__text_short": props.fact.isShort,
+  "fact-card__text-short": props.fact.isShort,
   "fact-card__text-long": !props.fact.isShort,
 }));
 </script>
@@ -54,13 +54,13 @@ const textClasses = computed(() => ({
   padding: 16px;
 }
 
-.fact-card__text_short {
+.fact-card__text-short {
   font-size: var(--font-body-lg);
   font-weight: var(--fw-bold);
   color: var(--font-color-body-lg);
 }
 
-.fact-card__text_long {
+.fact-card__text-long {
   font-size: var(--font-body-md);
   font-weight: var(--fw-normal);
   color: var(--font-color-body);
