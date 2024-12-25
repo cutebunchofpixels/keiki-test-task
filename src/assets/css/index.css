@@ -10,3 +10,8 @@ body {
 html {
   font-family: "Hind", Consolas;
 }
+
+img {
+  display: block;
+  max-width: 100%;
+}
