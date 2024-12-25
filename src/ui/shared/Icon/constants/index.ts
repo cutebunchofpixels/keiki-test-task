@@ -4,6 +4,7 @@ export enum IconName {
   Facebook = "facebook",
   Youtube = "youtube",
   X = "x",
+  Loader = "loader",
 }
 
 export enum IconSize {

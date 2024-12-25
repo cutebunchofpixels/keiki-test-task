@@ -2,19 +2,17 @@
 import { computed } from "vue";
 
 import { AppCard } from "@/ui/shared/Card";
-import { SHORT_FACT_MAX_LENGTH } from "@/ui/pages/facts/Facts/components/FactCard/constants";
+import type { Fact } from "@/facts/entities/Fact";
 
 export type FactCardProps = {
-  fact: string;
-  image: string;
+  fact: Fact;
 };
 
 const props = defineProps<FactCardProps>();
 
-const isShortFact = computed(() => props.fact.length <= SHORT_FACT_MAX_LENGTH);
 const textClasses = computed(() => ({
-  "fact-card__text_short": isShortFact.value,
-  "fact-card__text-long": !isShortFact.value,
+  "fact-card__text_short": props.fact.isShort,
+  "fact-card__text-long": !props.fact.isShort,
 }));
 </script>
 
@@ -22,12 +20,12 @@ const textClasses = computed(() => ({
   <div class="fact-card">
     <AppCard>
       <template #heading>
-        <img :src="image" class="fact-card__image" />
+        <img :src="fact.image" class="fact-card__image" />
       </template>
       <template #body>
         <div class="fact-card__body">
           <p :class="textClasses">
-            {{ fact }}
+            {{ fact.text }}
           </p>
         </div>
       </template>
@@ -39,7 +37,9 @@ const textClasses = computed(() => ({
 .fact-card {
   border-radius: var(--border-radius-normal);
   max-height: 460px;
+  max-width: 410px;
   transition: background-color var(--transition-duration-normal);
+  cursor: pointer;
 }
 
 .fact-card:hover {

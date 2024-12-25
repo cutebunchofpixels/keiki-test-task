@@ -10,7 +10,6 @@ import { RouterView } from "vue-router";
 
 <style scoped lang="scss">
 .main-layout-content {
-  flex-grow: 1;
   padding-inline: var(--page-padding-inline);
 }
 </style>
