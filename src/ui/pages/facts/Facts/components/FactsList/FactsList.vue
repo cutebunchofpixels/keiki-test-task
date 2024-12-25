@@ -22,7 +22,6 @@ const factsStore = useFactsStore();
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 40px 30px;
-  margin-bottom: 56px;
   justify-content: center;
 }
 

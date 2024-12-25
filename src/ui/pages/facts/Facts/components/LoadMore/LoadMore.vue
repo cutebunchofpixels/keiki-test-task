@@ -30,6 +30,5 @@ const factsStore = useFactsStore();
 .load-more__button {
   max-width: 310px;
   width: 100%;
-  margin-bottom: 48px;
 }
 </style>
