@@ -6,7 +6,7 @@ import { computed } from "vue";
 
 export type IconProps = {
   name: IconName;
-  size: IconSize;
+  size?: IconSize;
 };
 
 const props = withDefaults(defineProps<IconProps>(), {
