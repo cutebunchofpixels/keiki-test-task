@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 
 import { AuthLayout } from "@/ui/layouts/AuthLayout";
+import { MainLayout } from "@/ui/layouts/MainLayout";
 import { FactsPage } from "@/ui/pages/facts/Facts";
 import { authGuard, skipIfAuthorizedGuard } from "@/config/router/guards";
 
@@ -21,13 +22,16 @@ const router = new VueRouter({
     {
       path: "/",
       redirect: "/facts",
-    },
-    {
-      path: "/facts",
-      component: FactsPage,
-      meta: {
-        requiresAuth: true,
-      },
+      component: MainLayout,
+      children: [
+        {
+          path: "/facts",
+          component: FactsPage,
+          meta: {
+            requiresAuth: true,
+          },
+        },
+      ],
     },
   ],
 });

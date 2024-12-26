@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { AppAvatar } from "@/ui/shared/Avatar";
 import { AppLogo } from "@/ui/shared/Logo";
 import { LogoColor } from "@/ui/shared/Logo/constants";
+import { CurrentUserSection } from "./components/CurrentUserSection";
 </script>
 
 <template>
@@ -9,7 +9,7 @@ import { LogoColor } from "@/ui/shared/Logo/constants";
     <div class="header__logo">
       <AppLogo :color="LogoColor.Accent" />
     </div>
-    <AppAvatar username="a" />
+    <CurrentUserSection />
   </header>
 </template>
 

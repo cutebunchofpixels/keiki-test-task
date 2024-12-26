@@ -1,19 +1,25 @@
 <script setup lang="ts">
-import { computed, type ButtonHTMLAttributes } from "vue";
+import { computed } from "vue";
 
 import { ButtonVariant } from "@/ui/shared/Button/constants";
 
 export type ButtonProps = {
   variant?: ButtonVariant;
+  disabled?: boolean;
 };
 
 const props = withDefaults(defineProps<ButtonProps>(), {
   variant: ButtonVariant.Primary,
+  disabled: false,
 });
 
 const buttonClasses = computed(() => ({
   button_primary: props.variant === ButtonVariant.Primary,
+  button_primary_disabled:
+    props.variant === ButtonVariant.Primary && props.disabled,
   button_outlined: props.variant === ButtonVariant.Outlined,
+  button_outlined_disabled:
+    props.variant === ButtonVariant.Outlined && props.disabled,
 }));
 </script>
 
@@ -21,6 +27,7 @@ const buttonClasses = computed(() => ({
   <button
     v-bind="$attrs"
     v-on="$listeners"
+    :disabled="disabled"
     class="button"
     :class="buttonClasses"
   >
@@ -47,9 +54,21 @@ const buttonClasses = computed(() => ({
   color: var(--font-color-contrast);
 }
 
+.button_primary_disabled {
+  border: none;
+  background-color: var(--font-color-muted);
+  color: var(--font-color-contrast);
+}
+
 .button_outlined {
   background: transparent;
   border: 1px solid var(--accent-color);
   color: var(--accent-color);
+}
+
+.button_outlined_disabled {
+  background: transparent;
+  border: 1px solid var(--font-color-muted);
+  color: var(--font-color-muted);
 }
 </style>
