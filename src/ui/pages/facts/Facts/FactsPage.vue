@@ -1,25 +1,19 @@
 <script setup lang="ts">
-import { onMounted } from "vue";
-
 import { useFactsStore } from "@/facts/store";
 import { FactsList } from "./components/FactsList";
 import { PageLoader } from "./components/PageLoader";
 import { LoadMore } from "./components/LoadMore";
 import { PageHeading } from "./components/PageHeading";
 import { FiltersBar } from "./components/FiltersBar";
+import { FactsError } from "./components/FactsError";
 
 const factsStore = useFactsStore();
-
-onMounted(() => {
-  if (factsStore.isEmpty) {
-    factsStore.loadMore();
-  }
-});
 </script>
 
 <template>
   <div class="facts-page">
-    <PageLoader v-if="factsStore.isLoading" />
+    <FactsError v-if="factsStore.isError" />
+    <PageLoader v-else-if="factsStore.isLoading" />
     <template v-else>
       <div class="facts-page__heading">
         <PageHeading />
