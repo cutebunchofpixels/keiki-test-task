@@ -20,7 +20,7 @@ onMounted(() => {
 <template>
   <div class="facts-page">
     <PageLoader v-if="factsStore.isLoading" />
-    <div v-else>
+    <template v-else>
       <div class="facts-page__heading">
         <PageHeading />
       </div>
@@ -33,7 +33,7 @@ onMounted(() => {
       <div class="fact-page__load-more">
         <LoadMore />
       </div>
-    </div>
+    </template>
   </div>
 </template>
 
