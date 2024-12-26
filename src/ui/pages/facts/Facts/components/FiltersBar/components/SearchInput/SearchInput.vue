@@ -20,11 +20,6 @@ const factsStore = useFactsStore();
 </template>
 
 <style scoped lang="scss">
-.search-input {
-  max-width: 370px;
-  width: 100%;
-}
-
 .search-input__prepend {
   display: flex;
   align-items: center;

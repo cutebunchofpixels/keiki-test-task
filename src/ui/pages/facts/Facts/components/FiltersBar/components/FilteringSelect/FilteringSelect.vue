@@ -2,7 +2,7 @@
 import { useFactsStore } from "@/facts/store";
 import { FilteringOption } from "@/facts/types/FilteringOption";
 import { AppSelect } from "@/ui/shared/Select";
-import type { SelectItem } from "@/ui/shared/Select/AppSelect.vue";
+import type { SelectItem } from "@/ui/shared/Select/components/SelectItem";
 
 const selectItems: SelectItem<FilteringOption>[] = [
   { label: "All facts", value: FilteringOption.All },
@@ -20,10 +20,3 @@ const factsStore = useFactsStore();
     <AppSelect :items="selectItems" v-model="factsStore.filteringOption" />
   </div>
 </template>
-
-<style scoped lang="scss">
-.filtering-select {
-  max-width: 300px;
-  width: 100%;
-}
-</style>
