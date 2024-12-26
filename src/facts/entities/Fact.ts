@@ -53,7 +53,7 @@ export class Fact {
   }
 
   private static pickRandomImage() {
-    const imageNumber = randint(0, imageUrls.length);
+    const imageNumber = randint(0, imageUrls.length - 1);
     const imageUrl = imageUrls[imageNumber];
 
     return imageUrl;
