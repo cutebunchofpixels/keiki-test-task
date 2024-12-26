@@ -6,6 +6,7 @@ import { FactsList } from "./components/FactsList";
 import { PageLoader } from "./components/PageLoader";
 import { LoadMore } from "./components/LoadMore";
 import { PageHeading } from "./components/PageHeading";
+import { FiltersBar } from "./components/FiltersBar";
 
 const factsStore = useFactsStore();
 
@@ -23,6 +24,9 @@ onMounted(() => {
       <div class="facts-page__heading">
         <PageHeading />
       </div>
+      <div class="facts-page__filters-bar">
+        <FiltersBar />
+      </div>
       <div class="facts-page__list">
         <FactsList />
       </div>
@@ -39,6 +43,10 @@ onMounted(() => {
 }
 
 .facts-page__heading {
+  margin-bottom: 32px;
+}
+
+.facts-page__filters-bar {
   margin-bottom: 32px;
 }
 

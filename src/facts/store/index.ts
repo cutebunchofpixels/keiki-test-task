@@ -66,5 +66,7 @@ export const useFactsStore = defineStore("facts", () => {
     isLoading,
     isError,
     loadMore,
+    search,
+    filteringOption,
   };
 });

@@ -13,26 +13,28 @@ export class AllFilteringStrategy implements FilteringStrategy {
 
 export class ShortFirstFilteringStrategy implements FilteringStrategy {
   filter(facts: Fact[]): Fact[] {
-    const result = new Array<Fact>(facts.length);
+    const result: Fact[] = [];
     const grouped = groupBy<Fact, "short" | "long">(facts, (fact) =>
       fact.isShort ? "short" : "long"
     );
 
     result.push(...grouped.short);
     result.push(...grouped.long);
+
     return result;
   }
 }
 
 export class LongFirstFilteringStrategy implements FilteringStrategy {
   filter(facts: Fact[]): Fact[] {
-    const result = new Array<Fact>(facts.length);
+    const result: Fact[] = [];
     const grouped = groupBy<Fact, "short" | "long">(facts, (fact) =>
       fact.isShort ? "short" : "long"
     );
 
     result.push(...grouped.long);
     result.push(...grouped.short);
+
     return result;
   }
 }

@@ -1,8 +1,9 @@
 <script setup lang="ts">
+import { computed } from "vue";
+
 import { IconName, IconSize } from "@/ui/shared/Icon/constants";
 
 import spritesheetPath from "@/assets/icons/spritesheet.svg";
-import { computed } from "vue";
 
 export type IconProps = {
   name: IconName;
@@ -20,12 +21,16 @@ const iconClasses = computed(() => ({
 </script>
 
 <template>
-  <svg :class="iconClasses">
+  <svg class="icon" :class="iconClasses">
     <use :xlink:href="`${spritesheetPath}#${props.name}`"></use>
   </svg>
 </template>
 
 <style scoped lang="scss">
+.icon {
+  fill: currentColor;
+}
+
 .icon_md {
   width: 24px;
   height: 24px;
