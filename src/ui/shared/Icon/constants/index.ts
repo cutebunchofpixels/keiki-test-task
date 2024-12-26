@@ -1,6 +1,7 @@
 export enum IconName {
   ChevronDown = "chevron-down",
   ChevronUp = "chevron-up",
+  ChevronLeft = "chevron-left",
   Instagram = "instagram",
   Facebook = "facebook",
   Youtube = "youtube",

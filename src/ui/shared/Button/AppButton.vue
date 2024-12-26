@@ -15,11 +15,8 @@ const props = withDefaults(defineProps<ButtonProps>(), {
 
 const buttonClasses = computed(() => ({
   button_primary: props.variant === ButtonVariant.Primary,
-  button_primary_disabled:
-    props.variant === ButtonVariant.Primary && props.disabled,
   button_outlined: props.variant === ButtonVariant.Outlined,
-  button_outlined_disabled:
-    props.variant === ButtonVariant.Outlined && props.disabled,
+  button_text: props.variant === ButtonVariant.Text,
 }));
 </script>
 
@@ -42,9 +39,6 @@ const buttonClasses = computed(() => ({
   width: 100%;
   font-weight: var(--fw-semibold);
   border-radius: var(--border-radius-normal);
-}
-
-.button:hover {
   cursor: pointer;
 }
 
@@ -52,23 +46,31 @@ const buttonClasses = computed(() => ({
   border: none;
   background-color: var(--accent-color);
   color: var(--font-color-contrast);
-}
 
-.button_primary_disabled {
-  border: none;
-  background-color: var(--font-color-muted);
-  color: var(--font-color-contrast);
+  &:disabled {
+    background-color: var(--font-color-muted);
+  }
 }
 
 .button_outlined {
   background: transparent;
   border: 1px solid var(--accent-color);
   color: var(--accent-color);
+
+  &:disabled {
+    border-color: var(--font-color-muted);
+    color: var(--font-color-muted);
+  }
 }
 
-.button_outlined_disabled {
+.button_text {
+  border: none;
   background: transparent;
-  border: 1px solid var(--font-color-muted);
-  color: var(--font-color-muted);
+  padding-block: 4px;
+  font-weight: var(--fw-normal);
+
+  &:disabled {
+    color: var(--font-color-muted);
+  }
 }
 </style>
