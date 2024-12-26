@@ -2,6 +2,7 @@
 import { useFactsStore } from "@/facts/store";
 import { AppButton } from "@/ui/shared/Button";
 import { ButtonVariant } from "@/ui/shared/Button/constants";
+import { watch } from "vue";
 
 const factsStore = useFactsStore();
 </script>
@@ -12,9 +13,9 @@ const factsStore = useFactsStore();
       <AppButton
         :variant="ButtonVariant.Outlined"
         @click="factsStore.loadMore()"
-        :disabled="factsStore.isLoading || !factsStore.hasNext"
+        :disabled="factsStore.isFetching || !factsStore.hasNext"
       >
-        {{ factsStore.isLoading ? "Loading..." : "Load more facts" }}
+        {{ factsStore.isFetching ? "Loading..." : "Load more facts" }}
       </AppButton>
     </div>
   </div>

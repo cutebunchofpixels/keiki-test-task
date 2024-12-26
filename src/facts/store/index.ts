@@ -13,7 +13,7 @@ export const useFactsStore = defineStore("facts", () => {
   const search = ref<string>("");
   const facts = ref<Fact[]>([]);
   const filteringOption = ref<FilteringOption>(FilteringOption.All);
-  const [getFacts, { isLoading, data, isError }] = useLazyQuery<
+  const [getFacts, { isLoading, isFetching, data, isError }] = useLazyQuery<
     GetFactsResult,
     typeof factsApi.getFacts
   >({
@@ -68,6 +68,7 @@ export const useFactsStore = defineStore("facts", () => {
     hasNext,
     isEmpty,
     isLoading,
+    isFetching,
     isError,
     loadMore,
     search,
