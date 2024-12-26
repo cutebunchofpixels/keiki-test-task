@@ -60,6 +60,8 @@ function handleCardClick() {
 
 .fact-card__image {
   border-radius: var(--border-radius-normal);
+  width: 100%;
+  aspect-ratio: 1.62;
 }
 
 .fact-card__body {
