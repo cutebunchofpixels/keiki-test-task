@@ -46,6 +46,10 @@ export const useFactsStore = defineStore("facts", () => {
     );
   }
 
+  function getFactById(id: number) {
+    return facts.value.find((fact) => fact.id === id);
+  }
+
   const displayFacts = computed(() => {
     if (!facts.value) {
       return [];
@@ -68,5 +72,6 @@ export const useFactsStore = defineStore("facts", () => {
     loadMore,
     search,
     filteringOption,
+    getFactById,
   };
 });

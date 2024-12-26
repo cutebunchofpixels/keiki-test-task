@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
+import { useRouter } from "vue-router/composables";
 
 import { AppCard } from "@/ui/shared/Card";
 import type { Fact } from "@/facts/entities/Fact";
@@ -10,14 +11,25 @@ export type FactCardProps = {
 
 const props = defineProps<FactCardProps>();
 
+const router = useRouter();
+
 const textClasses = computed(() => ({
   "fact-card__text-short": props.fact.isShort,
   "fact-card__text-long": !props.fact.isShort,
 }));
+
+function handleCardClick() {
+  router.push(`/fact/${props.fact.id}`);
+}
 </script>
 
 <template>
-  <div class="fact-card">
+  <div
+    class="fact-card"
+    @click="handleCardClick"
+    @keydown.enter="handleCardClick"
+    tabindex="0"
+  >
     <AppCard>
       <template #heading>
         <img :src="fact.image" class="fact-card__image" />
